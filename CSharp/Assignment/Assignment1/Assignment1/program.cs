@@ -7,6 +7,9 @@ namespace Assignment1
     {
         static void Main(string[] args)  
         {
+
+            //This is a choice based answer for 5 questions.
+            //You want to press 1 to 5 for answers.
           
             Console.WriteLine("Enter 1 for Equal or Not ");
             Console.WriteLine("Enter 2 for +ve or -ve ");
