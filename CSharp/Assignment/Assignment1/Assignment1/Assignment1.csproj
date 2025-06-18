@@ -43,12 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Multipication.cs" />
-    <Compile Include="MiniCalci.cs" />
-    <Compile Include="PosOrNeg.cs" />
-    <Compile Include="EqualorNot.cs" />
+    <Compile Include="program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TripleOfIntegers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
