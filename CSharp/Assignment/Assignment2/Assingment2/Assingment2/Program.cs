@@ -108,21 +108,21 @@ namespace Assingment2
         {
             Console.WriteLine("\n\n***This is the Printing Days Program***");
 
-            Console.Write("\nEnter the Number to See the Day of the Week : ");
-            int Number = int.Parse(Console.ReadLine());
-            switch (Number)
-            {
-                case 1: Console.WriteLine("Monday");break;
-                case 2: Console.WriteLine("Tuesday"); break;
-                case 3: Console.WriteLine("Wednesday"); break;
-                case 4: Console.WriteLine("Thursday"); break;
-                case 5: Console.WriteLine("Friday"); break;
-                case 6: Console.WriteLine("Saturday"); break;
-                case 7: Console.WriteLine("Sunday"); break;
-                default : Console.WriteLine("Invalid choice. Please enter 1 to 7."); break;
+            string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
+            Console.Write("\nEnter the Number to See the Day of the Week (1-7): ");
+            int number = int.Parse(Console.ReadLine());
+
+            if (number >= 1 && number <= 7)
+            {
+                Console.WriteLine($"The day is: {days[number - 1]}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please enter a number between 1 and 7.");
             }
         }
+
 
         //4. This is Program to assign integer values to an array  and then print the following
 
