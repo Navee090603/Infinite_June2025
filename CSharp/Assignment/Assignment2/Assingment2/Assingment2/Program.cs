@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Assingment2
 {
@@ -35,7 +33,8 @@ namespace Assingment2
         {
             Console.WriteLine("***\n\nThis is the Swap Program***");
 
-            int a; int b;
+            int a; 
+            int b;
 
             Console.Write($"\nEnter a Number a : ");
             a = Convert.ToInt32(Console.ReadLine());
@@ -63,9 +62,7 @@ namespace Assingment2
 
             for (int i = 0; i < 2; i++)
             {
-                //if (i % 2 == 0)
                     Console.WriteLine("{0} {0} {0} {0}", num);
-                //else
                     Console.WriteLine("{0}{0}{0}{0}", num);    
             }
             
