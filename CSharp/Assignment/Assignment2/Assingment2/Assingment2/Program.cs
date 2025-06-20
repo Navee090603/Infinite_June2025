@@ -43,7 +43,10 @@ namespace Assingment2
             Console.Write($"Enter a Number b : ");
             b = Convert.ToInt32(Console.ReadLine());
 
-            int swap = a;a = b;b = swap;
+            int swap = a;
+            a = b;
+            b = swap;
+
             Console.WriteLine($"The Value of 'a' is swapped as {a}");
             Console.WriteLine($"The Value of 'b' is swapped as {b}");
 
@@ -58,11 +61,11 @@ namespace Assingment2
             int num = int.Parse(Console.ReadLine());
 
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 2; i++)
             {
-                if (i % 2 == 0)
+                //if (i % 2 == 0)
                     Console.WriteLine("{0} {0} {0} {0}", num);
-                else
+                //else
                     Console.WriteLine("{0}{0}{0}{0}", num);    
             }
             
