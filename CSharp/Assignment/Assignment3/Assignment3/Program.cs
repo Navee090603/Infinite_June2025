@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment3
 {
     class Program
     {
+        //this is the Main in the Entire Program
         static void Main(string[] args)
         {
 
@@ -29,9 +27,9 @@ namespace Assignment3
                 break; 
 
                 case 3:
-                    new SalesDetails();
+                    new SalesDetails();  //constructor for 3rd question created
                     SalesDetails.Sales();
-                    SalesDetails.ShowData(); //object was not Created by using Static keyword
+                    SalesDetails.ShowData(); //object was not Created by using Static keyword for 3rd question
                     Console.Read();
                 break;
                 
