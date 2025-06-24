@@ -1,0 +1,7 @@
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment3\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment3\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment3\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment3\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment3\Assignment3\obj\Debug\Assignment3.pdb
