@@ -13,26 +13,26 @@ namespace Assignment3
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
-                case 1: 
+                case 1:
                     Account acc = new Account(); //creating object for 1st Question
-                    acc.ShowData() ; 
-                    Console.Read(); 
-                break;
+                    acc.ShowData();
+                    Console.Read();
+                    break;
 
-                case 2: 
+                case 2:
                     Student student = new Student(); //object for 2nd Question
-                    student.GetMarks(); 
-                    student.DisplayData(); 
-                    Console.Read(); 
-                break; 
+                    student.GetMarks();
+                    student.DisplayData();
+                    Console.Read();
+                    break;
 
                 case 3:
                     new SalesDetails();  //constructor for 3rd question created
                     SalesDetails.Sales();
                     SalesDetails.ShowData(); //object was not Created by using Static keyword for 3rd question
                     Console.Read();
-                break;
-                
+                    break;
+
             }
         }
     }
@@ -107,7 +107,7 @@ namespace Assignment3
             Console.WriteLine($"Amount        : {Amount}");
             Console.WriteLine($"Final Balance : {Balance}");
         }
-      
+
     }
 
     // 2. Create a class called student which has data members like rollno, name, class, Semester, branch, int [] marks=new int marks [5](marks of 5 subjects )
@@ -203,7 +203,7 @@ namespace Assignment3
         public static float Price;
         public static string DateOfSale;
         public static double Quantity;
-        public static double TotalAmount=0;
+        public static double TotalAmount = 0;
 
 
         //Method Sales for Total Amount

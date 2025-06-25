@@ -1,0 +1,7 @@
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallenge_1\CodeChallenge_1\bin\Debug\CodeChallenge_1.exe.config
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallenge_1\CodeChallenge_1\bin\Debug\CodeChallenge_1.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallenge_1\CodeChallenge_1\bin\Debug\CodeChallenge_1.pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallenge_1\CodeChallenge_1\obj\Debug\CodeChallenge_1.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallenge_1\CodeChallenge_1\obj\Debug\CodeChallenge_1.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallenge_1\CodeChallenge_1\obj\Debug\CodeChallenge_1.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallenge_1\CodeChallenge_1\obj\Debug\CodeChallenge_1.pdb
