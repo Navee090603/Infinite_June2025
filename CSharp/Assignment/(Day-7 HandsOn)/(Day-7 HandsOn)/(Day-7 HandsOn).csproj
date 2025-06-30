@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2337E216-3C1C-4EA5-B6C8-98755F83C6BC}</ProjectGuid>
+    <ProjectGuid>{4ED1F15B-51C7-4B18-B0D3-F92E363E5FDB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CodeChallenge_1</RootNamespace>
-    <AssemblyName>CodeChallenge_1</AssemblyName>
+    <RootNamespace>_Day_7_HandsOn_</RootNamespace>
+    <AssemblyName>%28Day-7 HandsOn%29</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,9 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>CodeChallenge_1.Question3</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Question1.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question2.cs" />
-    <Compile Include="Question3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -17,10 +17,27 @@ namespace CodeChallenge_1
         }
     }
 
+    
+
     class Largest_Number
     {
-        
-        
+        //Exception Handling
+
+        //public void GetValidInput(string message)
+        //{
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            Console.Write(message);
+        //            string input = Console.ReadLine();
+
+        //            if (String.IsNullOrWhiteSpace(input))
+        //                throw new ArgumentNullException("Input cannot be empty. Please Enter the Valid input")
+        //        }
+        //    }
+        //}
+
 
         public void Finding_Large()
         {
@@ -35,6 +52,19 @@ namespace CodeChallenge_1
                 input[i] = int.Parse(Console.ReadLine());
             }
 
+
+            Console.Write("The Elements are : ");
+            for (int i = 0; i < Length; i++)
+            {
+                Console.Write(input[i]);
+                if (i < Length - 1)
+                {
+                    Console.Write(",");
+                }
+            }
+
+
+
             int max = input[0];
 
             for(int i = 0; i < Length; i++)
@@ -45,7 +75,7 @@ namespace CodeChallenge_1
                 }
             }
 
-            Console.WriteLine($"The Largest Number is {max}");
+            Console.WriteLine($"\nThe Largest Number is {max}");
 
         }
 
