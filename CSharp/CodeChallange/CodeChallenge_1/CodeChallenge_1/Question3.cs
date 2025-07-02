@@ -21,24 +21,6 @@ namespace CodeChallenge_1
 
     class Largest_Number
     {
-        //Exception Handling
-
-        //public void GetValidInput(string message)
-        //{
-        //    while (true)
-        //    {
-        //        try
-        //        {
-        //            Console.Write(message);
-        //            string input = Console.ReadLine();
-
-        //            if (String.IsNullOrWhiteSpace(input))
-        //                throw new ArgumentNullException("Input cannot be empty. Please Enter the Valid input")
-        //        }
-        //    }
-        //}
-
-
         public void Finding_Large()
         {
             Console.Write("Enter the Lenth of the array : ");

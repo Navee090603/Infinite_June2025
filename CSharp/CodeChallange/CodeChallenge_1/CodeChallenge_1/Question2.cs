@@ -7,14 +7,9 @@ namespace CodeChallenge_1
     {
         static void Main(string[] args)
         {
-
-
             //object of 2nd question
             Swap_Char swap_Char = new Swap_Char();
             swap_Char.Show_Data();
-
-
-
             Console.Read();
         }
     }
@@ -44,14 +39,7 @@ namespace CodeChallenge_1
             {
                 middle += Word[i];
             }
-
-            
-
                 Console.WriteLine($"The result is: {Last_Letter + middle + First_Letter}");
             }
-
-
-            
-        
     }
 }
