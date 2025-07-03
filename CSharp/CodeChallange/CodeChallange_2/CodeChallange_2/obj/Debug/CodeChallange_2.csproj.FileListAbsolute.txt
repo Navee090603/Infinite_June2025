@@ -1,0 +1,7 @@
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallange_2\CodeChallange_2\bin\Debug\CodeChallange_2.exe.config
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallange_2\CodeChallange_2\bin\Debug\CodeChallange_2.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallange_2\CodeChallange_2\bin\Debug\CodeChallange_2.pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallange_2\CodeChallange_2\obj\Debug\CodeChallange_2.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallange_2\CodeChallange_2\obj\Debug\CodeChallange_2.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallange_2\CodeChallange_2\obj\Debug\CodeChallange_2.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\CodeChallange\CodeChallange_2\CodeChallange_2\obj\Debug\CodeChallange_2.pdb
