@@ -11,14 +11,14 @@ namespace CodeChallange_2
         static void Main(string[] args)
         {
             //Question 1
-            //new StudentTest().RunTest();
+            new StudentTest().RunTest();
 
             //Question 2
             //ProductCreation productCreation = new ProductCreation();
             //productCreation.ManageProducts();
 
             //Question 3
-            new NegativeChecker().Validate();
+            //new NegativeChecker().Validate();
 
             Console.ReadLine();
         }
