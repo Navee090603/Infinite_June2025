@@ -279,7 +279,7 @@ namespace Day7
     //Call ReceiveCall() to simulate an incoming call.
 
 
-    public class MobilePhone // MobilePhone class with delegate and event
+    public class MobilePhone
     {
         public delegate void RingEventHandler();
         public event RingEventHandler OnRing;
@@ -287,11 +287,10 @@ namespace Day7
         public void ReceiveCall()
         {
             Console.WriteLine("\nIncoming Call...");
-            OnRing?.Invoke(); // Trigger the event
+            OnRing?.Invoke();
         }
     }
 
-    // Subscriber classes
     public class RingtonePlayer
     {
         public void PlayRingtone()
@@ -316,7 +315,6 @@ namespace Day7
         }
     }
 
-    // Call class to wire the components
     class Call
     {
         public void MakeCall()
@@ -326,12 +324,42 @@ namespace Day7
             ScreenDisplay screen = new ScreenDisplay();
             VibrationMotor vibration = new VibrationMotor();
 
-            // Subscribing components to the event
-            phone.OnRing += ringtone.PlayRingtone;
-            phone.OnRing += screen.ShowCallerInfo;
-            phone.OnRing += vibration.Vibrate;
+            // menu
+            Console.WriteLine("\n Choose notification modes to enable (comma-separated):");
+            Console.WriteLine("1. Ringtone");
+            Console.WriteLine("2. Vibration");
+            Console.WriteLine("3. Screen Display");
+            Console.WriteLine("4. All");
 
-            phone.ReceiveCall();// Simulate call
+            Console.Write("Your choice: ");
+            string[] choices = Console.ReadLine().Split(',');
+
+            foreach (string raw in choices)
+            {
+                string option = raw.Trim();
+                switch (option)
+                {
+                    case "1":
+                        phone.OnRing += ringtone.PlayRingtone;
+                        break;
+                    case "2":
+                        phone.OnRing += vibration.Vibrate;
+                        break;
+                    case "3":
+                        phone.OnRing += screen.ShowCallerInfo;
+                        break;
+                    case "4":
+                        phone.OnRing += ringtone.PlayRingtone;
+                        phone.OnRing += vibration.Vibrate;
+                        phone.OnRing += screen.ShowCallerInfo;
+                        break;
+                    default:
+                        Console.WriteLine($"Unknown option: {option}");
+                        break;
+                }
+            }
+
+            phone.ReceiveCall(); // Simulate call
         }
     }
 }
