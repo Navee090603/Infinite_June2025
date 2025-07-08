@@ -5,3 +5,10 @@ C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\(Day-7 Han
 C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\(Day-7 HandsOn)\(Day-7 HandsOn)\obj\Debug\(Day-7 HandsOn).csproj.CoreCompileInputs.cache
 C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\(Day-7 HandsOn)\(Day-7 HandsOn)\obj\Debug\(Day-7 HandsOn).exe
 C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\(Day-7 HandsOn)\(Day-7 HandsOn)\obj\Debug\(Day-7 HandsOn).pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment4\(Day-7 HandsOn)\bin\Debug\(Day-7 HandsOn).exe.config
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment4\(Day-7 HandsOn)\bin\Debug\(Day-7 HandsOn).exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment4\(Day-7 HandsOn)\bin\Debug\(Day-7 HandsOn).pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment4\(Day-7 HandsOn)\obj\Debug\(Day-7 HandsOn).csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment4\(Day-7 HandsOn)\obj\Debug\(Day-7 HandsOn).csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment4\(Day-7 HandsOn)\obj\Debug\(Day-7 HandsOn).exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\CSharp\Assignment\Assignment4\(Day-7 HandsOn)\obj\Debug\(Day-7 HandsOn).pdb

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Day7
 {
@@ -10,10 +8,20 @@ namespace Day7
     {
         static void Main()
         {
-            Employee emp1 = new Employee();
-            emp1.Menu();
+            //Employee emp1 = new Employee();
+            //emp1.Menu();
+
+
+            Call call = new Call(); //Object created for question 2
+            call.MakeCall();
+
+            Console.ReadLine();
+
+
         }
     }
+
+    //Question 1 Scenario: Employee Management System (Console-Based)
 
     class Employee
     {
@@ -40,7 +48,7 @@ namespace Day7
                 Console.WriteLine("5. Delete Employee");
                 Console.WriteLine("6. Exit");
                 Console.Write("\nChoose an option: ");
-
+                
                 try
                 {
                     int choice = int.Parse(Console.ReadLine());
@@ -63,7 +71,7 @@ namespace Day7
                     continue;
                 }
 
-
+                
             }
         }
 
@@ -118,11 +126,13 @@ namespace Day7
 
             Console.WriteLine("\nEmployee Added Successfully....");
 
+            
         }
-
+        
         // For Showing Details
         public void ShowData()
         {
+            
 
             if (employee.Count == 0) { Console.WriteLine("\nNo one to display..."); }
 
@@ -137,12 +147,14 @@ namespace Day7
                     Console.WriteLine($"Salary     : {i.Salary}");
                 }
             }
+            
         }
 
         //For Search Id
 
         public void SearchId()
         {
+            
             try
             {
                 Console.Write("\nEnter the Id to be Searched : ");
@@ -163,6 +175,8 @@ namespace Day7
             {
                 Console.WriteLine("Please enter a valid numerical ID.");
             }
+           
+            
         }
 
 
@@ -170,6 +184,7 @@ namespace Day7
 
         public void Update()
         {
+            
             try
             {
                 Console.Write("\nEnter the Id to be Updated : ");
@@ -199,12 +214,14 @@ namespace Day7
             {
                 Console.WriteLine("Please enter a valid numerical ID.");
             }
+            
         }
 
         //For Deletion
 
         public void Delete()
         {
+            
             try
             {
                 Console.Write("\nEnter the Employee ID to delete : ");
@@ -227,8 +244,94 @@ namespace Day7
             {
                 Console.WriteLine("\nPlease enter a valid numerical ID.");
             }
-
+            Console.ReadLine();
+            
         }
 
+
+    }
+
+    //    Scenario: Mobile Phone – Ring Notification System
+    //You are simulating a mobile phone that can ring when someone calls.Different parts of the phone(like ringtone player, screen display, and vibration motor) need to react to the ring event.
+
+    //To model this, use delegates and events.
+
+    //🎯 Task:
+    //Implement the following in C#:
+
+    //1. MobilePhone class
+    //Has a delegate RingEventHandler and an event OnRing.
+
+    //Has a method ReceiveCall() which triggers the OnRing event.
+
+    //2. Subscriber classes (handlers):
+    //RingtonePlayer – prints: "Playing ringtone..."
+
+    //ScreenDisplay – prints: "Displaying caller information..."
+
+    //VibrationMotor – prints: "Phone is vibrating..."
+
+    //3. In the Main() method:
+    //Create an instance of MobilePhone.
+
+    //Subscribe all three components to the OnRing event.
+
+    //Call ReceiveCall() to simulate an incoming call.
+
+
+    public class MobilePhone // MobilePhone class with delegate and event
+    {
+        public delegate void RingEventHandler();
+        public event RingEventHandler OnRing;
+
+        public void ReceiveCall()
+        {
+            Console.WriteLine("\nIncoming Call...");
+            OnRing?.Invoke(); // Trigger the event
+        }
+    }
+
+    // Subscriber classes
+    public class RingtonePlayer
+    {
+        public void PlayRingtone()
+        {
+            Console.WriteLine("Playing Ringtone...");
+        }
+    }
+
+    public class ScreenDisplay
+    {
+        public void ShowCallerInfo()
+        {
+            Console.WriteLine("Displaying Caller Information...");
+        }
+    }
+
+    public class VibrationMotor
+    {
+        public void Vibrate()
+        {
+            Console.WriteLine("Phone is Vibrating...");
+        }
+    }
+
+    // Call class to wire the components
+    class Call
+    {
+        public void MakeCall()
+        {
+            MobilePhone phone = new MobilePhone();
+            RingtonePlayer ringtone = new RingtonePlayer();
+            ScreenDisplay screen = new ScreenDisplay();
+            VibrationMotor vibration = new VibrationMotor();
+
+            // Subscribing components to the event
+            phone.OnRing += ringtone.PlayRingtone;
+            phone.OnRing += screen.ShowCallerInfo;
+            phone.OnRing += vibration.Vibrate;
+
+            phone.ReceiveCall();// Simulate call
+        }
     }
 }
