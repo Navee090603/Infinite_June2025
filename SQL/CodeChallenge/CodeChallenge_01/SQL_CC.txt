@@ -1,0 +1,177 @@
+--create database
+
+create database Assignments
+
+--create table book
+
+create table book(
+Id int primary key,
+Title varchar(30)not null,
+Author varchar(20)not null,
+Isbn varchar(20) unique not null,
+Published_Date date)
+
+--Adding inside the book
+
+insert into book values(1, 'My first SQL Book','Mary parker', '981483029127', '2012-02-22 12:08:17' ),
+(2, 'My second SQL Book','John mayer', '857300923713', '1972-07-03 09:22:45' ),
+(3, 'My Third SQL Book','Cary Flint', '523120967812', '2015-10-18 14:05:44' )
+
+--display
+
+select * from book
+
+--create table reviews
+
+create table reviews (
+id int primary key, 
+book_id int constraint fk foreign key(book_id) references book(id), 
+reviewer_name varchar(30), 
+content varchar(50), 
+rating int, 
+published_date date)
+
+--insert into reviews
+
+insert into reviews values(1, 1, 'John Smith', 'My first review', 4, '2017-12-10 05:50:00'),
+(2, 2, 'John Smith', 'My second review', 5, '2017-10-13 15:05:00'),
+(3, 2, 'Alice Walker', 'Another review', 1, '2017-10-22 23:47:00')
+
+select * from reviews
+
+--Create table customer
+
+create table customer(
+id int primary key,
+Name_ varchar(20),
+Age int,
+Address_ varchar(50),
+salary decimal(12,2))
+
+insert into customer values(1, 'ramesh', 32, 'ahmedabad', 2000.00),
+(2, 'khilan', 25, 'delhi', 1500.00),
+(3, 'kaushik', 23, 'kota', 2000.00),
+(4, 'chaitali', 25, 'mumbai', 6500.00),
+(5, 'hardik', 27, 'bhopal', 8500.00),
+(6, 'komal', 22, 'mp', 4500.00),
+(7, 'muffy', 24, 'indore', 10000.00)
+
+select * from customer
+
+--create table order
+
+create table orders (
+    oid int primary key,
+    date_ date,
+    customer_id int constraint fk_orders foreign key (customer_id) references customer(id),
+    amount int,
+)
+
+insert into orders values(102, '2009-10-08 ', 3, 3000),
+(100, '2009-10-08 ', 3, 1500),
+(101, '2009-11-20', 2, 1560),
+(103, '2008-05-20 ', 4, 2060)
+
+select * from orders
+
+--create table employee
+
+create table employee(
+id int primary key,
+Name_ varchar(20),
+Age int,
+Address_ varchar(50),
+salary decimal(12,2))
+
+insert into employee values(1, 'ramesh', 32, 'ahmedabad', 2000.00),
+(2, 'khilan', 25, 'delhi', 1500.00),
+(3, 'kaushik', 23, 'kota', 2000.00),
+(4, 'chaitali', 25, 'mumbai', 6500.00),
+(5, 'hardik', 27, 'bhopal', 8500.00),
+(6, 'komal', 22, 'mp', null),
+(7, 'muffy', 24, 'indore',null)
+
+
+select * from employee
+
+--create table studentdetails
+
+create table studentdetail(
+registerno int, 
+name_ varchar(30),
+age int,
+qualification varchar(10),
+mobileno varchar(12),
+mail_id varchar(50),
+location_ varchar(20),
+gender varchar(10))
+ 
+insert into studentdetail values (2, 'sai', 22, 'b.e', 9952836777, 'sai@gmail.com', 'chennai', 'm'),
+(3, 'kumar', 20, 'bsc', 7890125648, 'kumar@gmail.com', 'madurai', 'm'),
+(4, 'selvi', 22, 'b.tech', 8904567342, 'selvi@gmail.com', 'selam', 'f'),
+(5, 'nisha', 25, 'm.e', 7834672310, 'nisha@gmail.com', 'theni', 'f'),
+(6, 'saisaran', 21, 'b.a', 7890345678, 'saran@gmail.com', 'madurai', 'f'),
+(7, 'tom', 23, 'bca', 8901234675, 'tom@gmail.com', 'pune', 'm')
+
+select * from studentdetail
+
+
+
+--Query-1
+
+select * from book where author like '%er'
+
+
+
+
+--Query-2
+
+select title,author,reviewer_name 
+from reviews,book where book.id = reviews.book_id
+
+--for all books if there is no review
+
+select title, author, reviewer_name
+from book left join reviews on book.id = book_id
+
+
+
+
+--Query-3 Display the  reviewer name who reviewed more than one book.
+
+select reviewer_name from reviews
+group by reviewer_name
+having count(book_id) > 1
+
+
+--Query-4 Display the Name for the customer from above customer table  who live in same address which has character o anywhere in address
+
+select Name_,Address_ from customer where Address_ like '%o%'
+
+
+
+
+--Query-5 Write a query to display the  Date,Total no of customer  placed order on same Date 
+
+select date_, count(distinct customer_id) as AllCustomers from orders group by date_
+
+
+
+
+--Query-6 Display the Names of the Employee in lower case, whose salary is null 
+
+select lower(name_) 'Name' from employee where salary is null
+
+
+
+
+
+
+
+--Query-7 Write a sql server query to display the Gender,Total no of male and female from the above relation    
+
+select gender, count(*) 'totalcount' from studentdetail group by gender
+
+
+
+
