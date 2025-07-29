@@ -1,0 +1,7 @@
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\Assignments\Assigment 1\Linq_Questions\Linq_Questions\bin\Debug\Linq_Questions.exe.config
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\Assignments\Assigment 1\Linq_Questions\Linq_Questions\bin\Debug\Linq_Questions.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\Assignments\Assigment 1\Linq_Questions\Linq_Questions\bin\Debug\Linq_Questions.pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\Assignments\Assigment 1\Linq_Questions\Linq_Questions\obj\Debug\Linq_Questions.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\Assignments\Assigment 1\Linq_Questions\Linq_Questions\obj\Debug\Linq_Questions.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\Assignments\Assigment 1\Linq_Questions\Linq_Questions\obj\Debug\Linq_Questions.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\Assignments\Assigment 1\Linq_Questions\Linq_Questions\obj\Debug\Linq_Questions.pdb
