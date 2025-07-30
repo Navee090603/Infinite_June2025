@@ -1,0 +1,7 @@
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\CodeChallenge\CodeChallenge_1\Question_1\Question_1\bin\Debug\Question_1.exe.config
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\CodeChallenge\CodeChallenge_1\Question_1\Question_1\bin\Debug\Question_1.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\CodeChallenge\CodeChallenge_1\Question_1\Question_1\bin\Debug\Question_1.pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\CodeChallenge\CodeChallenge_1\Question_1\Question_1\obj\Debug\Question_1.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\CodeChallenge\CodeChallenge_1\Question_1\Question_1\obj\Debug\Question_1.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\CodeChallenge\CodeChallenge_1\Question_1\Question_1\obj\Debug\Question_1.exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\ADO\CodeChallenge\CodeChallenge_1\Question_1\Question_1\obj\Debug\Question_1.pdb
