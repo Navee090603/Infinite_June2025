@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Assignment 2 - Tribute to Lionel Messi</title>
+    <style>
+        body {
+            background: #f6f9fc;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0 0 40px 0;
+        }
+
+        h2 {
+            color: #1d3557;
+            margin-top: 32px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        /* Q1 + Q5 - Tribute Image and Overlay */
+        .container {
+            position: relative;
+            width: 320px;
+            margin: 36px auto 0 auto;
+        }
+
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(30,30,60,0.13);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: 0.5s ease;
+            background-color: rgba(0, 0, 0, 0.58);
+            border-radius: 16px;
+        }
+
+        .container:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: #fff;
+            font-size: 25px;
+            font-weight: 600;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        /* Q2 - CSS3 Button */
+        .css3-btn {
+            padding: 14px 38px;
+            background: linear-gradient(90deg, #00b894 40%, #00cec9 100%);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0, 206, 201, 0.12);
+            font-size: 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            cursor: pointer;
+            transition: background 0.4s, box-shadow 0.4s, transform 0.2s;
+            margin: 18px auto 0 auto;
+            display: block;
+        }
+
+            .css3-btn:hover {
+                background: linear-gradient(90deg, #00cec9 40%, #00b894 100%);
+                box-shadow: 0 8px 24px rgba(0, 184, 148, 0.22);
+                transform: scale(1.08);
+            }
+        /* Q3 - Definition List */
+        .def-list-section {
+            width: 90%;
+            max-width: 500px;
+            background: #fff;
+            margin: 32px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(60,60,90,0.07);
+            padding: 22px 34px;
+        }
+
+        dt {
+            font-weight: bold;
+            color: #2d3436;
+            margin-top: 12px;
+            font-size: 17px;
+        }
+
+        dd {
+            margin-left: 20px;
+            color: #636e72;
+            margin-bottom: 10px;
+        }
+        /* Q4 - Animation Delay: Circle */
+        .circle-box {
+            width: 80px;
+            height: 80px;
+            background: #fdcb6e;
+            border-radius: 50%;
+            margin: 36px auto 0 auto;
+            box-shadow: 0 4px 12px rgba(253,203,110,0.17);
+            animation: moveCircle 1.2s linear 1s forwards;
+        }
+
+        @keyframes moveCircle {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(180px);
+            }
+        }
+
+        .restart-btn {
+            display: block;
+            margin: 18px auto 0 auto;
+            padding: 10px 24px;
+            background: #636e72;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+            .restart-btn:hover {
+                background: #222;
+            }
+        /* Q5 - Tribute container */
+        .tribute-container {
+            width: 95%;
+            max-width: 600px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            padding: 32px 24px;
+        }
+
+        .tribute-img {
+            display: block;
+            margin: 0 auto 16px auto;
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            box-shadow: 0 4px 14px rgba(34,139,34,0.11);
+        }
+
+        .tribute-title {
+            text-align: center;
+            font-size: 2em;
+            margin: 12px 0 10px 0;
+            color: #00b894;
+            font-weight: 700;
+        }
+
+        .tribute-sub {
+            text-align: center;
+            color: #636e72;
+            margin-bottom: 28px;
+        }
+
+        .tribute-container ul {
+            color: #222;
+            margin-left: 18px;
+        }
+
+        .tribute-container p {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 18px;
+            font-size: 17px;
+        }
+
+        .winner-msg {
+            display: none;
+            text-align: center;
+            margin: 20px auto 0 auto;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #00b894;
+            letter-spacing: 1.2px;
+        }
+    </style>
+    <script>
+        // Q4 - Animation Restart
+        function restartAnimation() {
+            var circle = document.getElementById('ani-circle');
+            circle.style.animation = 'none';
+            // Force reflow
+            void circle.offsetWidth;
+            circle.style.animation = 'moveCircle 1.2s linear 1s forwards';
+        }
+        // Q3 - Show Winner Message on Button Click
+        function showWinnerMsg() {
+            document.getElementById('winner-msg').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <!-- Q1 & Q5: Tribute to Messi with Overlay -->
+    <h2>1. Tribute Page: Lionel Messi <br /> (Q1,Q5)</h2>
+    <div class="container">
+        <img src="C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\HTML\Assignment\Assignment_2\Assignment_2\Images\Image_1.jpg" alt="Lionel Messi" class="image">
+        <div class="overlay">
+            <div class="text">Lionel Messi<br>Legendary Footballer</div>
+        </div>
+    </div>
+
+    <div class="tribute-container">
+        <img src="C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\HTML\Assignment\Assignment_2\Assignment_2\Images\Image_2.jpg" alt="Lionel Messi" class="tribute-img">
+        <div class="tribute-title">Lionel Messi</div>
+        <div class="tribute-sub">GOAT &bull; 1987 - Present</div>
+        <p>
+            Lionel Messi is an Argentine professional footballer widely regarded as one of the greatest players of all time. Known for his extraordinary dribbling, vision, and goal-scoring abilities, Messi has dazzled fans around the globe and set numerous records.
+        </p>
+        <ul>
+            <li>Won the FIFA World Cup with Argentina in 2022</li>
+            <li>7-time Ballon d'Or winner</li>
+            <li>Most goals for a single club (FC Barcelona)</li>
+            <li>Olympic Gold Medalist (2008)</li>
+            <li>Copa América Winner (2021)</li>
+            <li>All-time top scorer for Argentina</li>
+            <li>Multiple Champions League and La Liga titles</li>
+        </ul>
+        <p>
+            Messi's humility, leadership, and magic on the field inspire millions. He is not just a footballer, but a global icon whose impact transcends sport.
+        </p>
+    </div>
+
+    <!-- Q2 & Q3: CSS3 Button & Definition List -->
+    <h2>2. Football Definition List & Special Button (Q2,Q3)</h2>
+    <div class="def-list-section">
+        <dl>
+            <dt>Messi</dt>
+            <dd>Lionel Messi, Argentine forward, known for his dribbling, finishing, and records.</dd>
+            <dt>Dribble</dt>
+            <dd>The skill of moving the ball past opponents with quick and controlled touches.</dd>
+            <dt>Goal</dt>
+            <dd>When the ball crosses the goal line between the posts, scoring a point for the team.</dd>
+            <dt>Assist</dt>
+            <dd>A pass or action leading directly to a goal.</dd>
+            <dt>Kick</dt>
+            <dd>Striking the ball with the foot to pass, shoot, or clear.</dd>
+        </dl>
+    </div>
+    <button class="css3-btn" onclick="showWinnerMsg()">Kick</button>
+    <div id="winner-msg" class="winner-msg">World Cup Winner!</div>
+
+    <!-- Q4: Animation Delay & Circle Shape -->
+    <h2>3. Animation: Moving Football (Q5)</h2>
+    <div class="circle-box" id="ani-circle"></div>
+    <button class="restart-btn" onclick="restartAnimation()">Restart Animation</button>
+    <p style="text-align:center;">football moves right after <b>1s delay</b>. Click to restart animation.</p>
+</body>
+</html>

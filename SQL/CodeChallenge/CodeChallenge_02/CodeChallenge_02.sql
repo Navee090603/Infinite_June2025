@@ -12,6 +12,7 @@ select datename(weekday, cast('2003-06-09' as date)) as Birthday
 
 
 --2.	Write a query to display your age in days
+
 select datediff(day, '2003-06-09', getdate()) as Age_In_Days
 
 
@@ -21,6 +22,10 @@ select datediff(day, '2003-06-09', getdate()) as Age_In_Days
 --3.	Write a query to display all employees information those who joined before 5 years in the current month
  
 --(Hint : If required update some HireDates in your EMP table of the assignment)
+
+update emp
+set hire_date='15-jul-18'
+where ename in ('allen','smith')
 
 select * from emp where month(hire_date) = month(getdate()) and datediff(year, hire_date, getdate()) >= 5
 
