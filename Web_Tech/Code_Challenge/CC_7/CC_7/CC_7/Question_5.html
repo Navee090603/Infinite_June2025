@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>H1 Child of Div</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                $('h1').parents('div').css("background-color", "yellow");
+            });
+    </script>
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>Find all h1 that are children of div</h2>
+    <hr>
+    <div>
+        <h1>This is a Heading inside Div</h1>
+    </div>
+    <h1>This is a Heading outside Div</h1>
+    <div>
+        <h1>Another Div Heading</h1>
+    </div>
+</body>
+
+</html>

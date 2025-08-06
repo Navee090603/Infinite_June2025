@@ -1,0 +1,7 @@
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\JavaScript\Hand_On(Login_Page)\Hand_On(Login_Page)\bin\Debug\Hand_On(Login_Page).exe.config
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\JavaScript\Hand_On(Login_Page)\Hand_On(Login_Page)\bin\Debug\Hand_On(Login_Page).exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\JavaScript\Hand_On(Login_Page)\Hand_On(Login_Page)\bin\Debug\Hand_On(Login_Page).pdb
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\JavaScript\Hand_On(Login_Page)\Hand_On(Login_Page)\obj\Debug\Hand_On(Login_Page).csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\JavaScript\Hand_On(Login_Page)\Hand_On(Login_Page)\obj\Debug\Hand_On(Login_Page).csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\JavaScript\Hand_On(Login_Page)\Hand_On(Login_Page)\obj\Debug\Hand_On(Login_Page).exe
+C:\Users\naveent\Downloads\Infinite_Naveen_June2025\Web_Tech\JavaScript\Hand_On(Login_Page)\Hand_On(Login_Page)\obj\Debug\Hand_On(Login_Page).pdb

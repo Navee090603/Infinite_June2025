@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{233594F3-BE84-4FF4-8CCE-E8083B914732}</ProjectGuid>
+    <ProjectGuid>{54AF1B3F-F9EF-4A95-BDAA-27D2A3E3A925}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Assignment_2</RootNamespace>
-    <AssemblyName>Assignment_2</AssemblyName>
+    <RootNamespace>CC_7</RootNamespace>
+    <AssemblyName>CC_7</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,13 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Answers.html" />
-    <Content Include="Q2.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

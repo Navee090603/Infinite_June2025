@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>6 & 7. List Items Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // 6. jQuery Code to Get a Single Element
+        function selectSingle() {
+            $("li").eq(1).css("color", "blue");
+        }
+
+        // 7. jQuery Code to Add Index to List Items
+        function addIndex() {
+            $("#myList li").each(function (index) {
+                $(this).text((index + 1) + ". " + $(this).text());
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>6 & 7. List Items Example</h2>
+    <ul id="myList">
+        <li>CSHARP</li>
+        <li>SQL</li>
+        <li>ADO</li>
+    </ul>
+    <button onclick="selectSingle()">Select 2nd Item</button>
+    <button onclick="addIndex()">Add Index to List</button>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('images/Image_2.jpg') no-repeat top left;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            height: 50vh;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            width: 320px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+            .form-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .submit-btn:hover {
+                background-color: #218838;
+            }
+
+        @media (max-width: 600px) {
+            .form-container {
+                width: 90%;
+                left: 5%;
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form onsubmit="return validateForm();">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" />
+                <div id="usernameError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" />
+                <div id="emailError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" />
+                <div id="passwordError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" />
+                <div id="confirmPasswordError" class="error-message"></div>
+            </div>
+
+            <input type="submit" class="submit-btn" value="SIGN UP" />
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+
+            // Get fields
+            const username = document.getElementById('username');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+
+            // Get error containers
+            const usernameError = document.getElementById('usernameError');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+            // Clear previous errors
+            usernameError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            confirmPasswordError.textContent = '';
+
+            // Flag
+            let valid = true;
+
+            if (!lengthRestriction(username, 3, 25, usernameError)) valid = false;
+            if (!emailValidate(email, emailError)) valid = false;
+            if (!passwordValidate(password, passwordError)) valid = false;
+            if (!matchPassword(password, confirmPassword, confirmPasswordError)) valid = false;
+
+            return valid;
+        }
+
+        function lengthRestriction(elem, min, max, errorElem) {
+            const val = elem.value.trim();
+            if (val.length >= min && val.length <= max) {
+                return true;
+            } else {
+                errorElem.textContent = "Username must be between " + min + " and " + max + " characters.";
+                elem.focus();
+                return false;
+            }
+        }
+
+        function emailValidate(elem, errorElem) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (elem.value.match(emailPattern)) {
+                return true;
+            } else {
+                errorElem.textContent = "Please enter a valid email address.";
+                elem.focus();
+                return false;
+            }
+        }
+
+        function passwordValidate(elem, errorElem) {
+            const password = elem.value;
+            const passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+            if (passPattern.test(password)) {
+                return true;
+            } else {
+                errorElem.textContent = "Password must have 1 uppercase, 1 lowercase, 1 number, 1 special character (!@#$%^&*), and be at least 8 characters.";
+                elem.focus();
+                return false;
+            }
+        }
+
+        function matchPassword(passElem, confirmElem, errorElem) {
+            if (passElem.value === confirmElem.value) {
+                return true;
+            } else {
+                errorElem.textContent = "Passwords do not match.";
+                confirmElem.focus();
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>

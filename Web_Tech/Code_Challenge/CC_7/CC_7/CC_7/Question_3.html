@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Button Click Event Example</title>
+    <script>
+        window.onload = function () {
+            
+            var btn = document.createElement("button");
+            btn.innerHTML = "Click Me";
+
+            btn.addEventListener("click", function () {
+                console.log("Button was clicked!");
+            });
+            document.body.appendChild(btn);
+        }
+    </script>
+</head>
+<body>
+    <h2>Write a JavaScript program that creates a button and add a click event listener to log a message when it's clicked.</h2>
+</body>
+</html>

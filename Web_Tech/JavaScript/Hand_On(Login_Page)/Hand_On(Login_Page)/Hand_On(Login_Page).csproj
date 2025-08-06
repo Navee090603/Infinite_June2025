@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{233594F3-BE84-4FF4-8CCE-E8083B914732}</ProjectGuid>
+    <ProjectGuid>{AE541A34-23B6-47D6-9383-13FCA1810E91}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Assignment_2</RootNamespace>
-    <AssemblyName>Assignment_2</AssemblyName>
+    <RootNamespace>Hand_On_Login_Page_</RootNamespace>
+    <AssemblyName>Hand_On%28Login_Page%29</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,8 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Answers.html" />
-    <Content Include="Q2.html" />
+    <Content Include="Login_Page.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
