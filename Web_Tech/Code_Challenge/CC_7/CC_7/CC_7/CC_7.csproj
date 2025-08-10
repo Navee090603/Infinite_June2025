@@ -49,5 +49,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Question_1.html" />
+    <Content Include="Question_1%28Mul_Div%29.js" />
+    <Content Include="Question_2%28Odd_Even%29.js" />
+    <Content Include="Question_2.html" />
+    <Content Include="Question_3.html" />
+    <Content Include="Question_4.html" />
+    <Content Include="Question_5.html" />
+    <Content Include="Question_6_7.html" />
+    <Content Include="Question_8.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

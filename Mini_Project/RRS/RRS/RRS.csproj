@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8DF4C52-5C86-4B42-9336-BD8B75512741}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RRS</RootNamespace>
+    <AssemblyName>RRS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RRS.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin_Factories\AdminAddTrainFeature.cs" />
+    <Compile Include="Admin_Factories\AdminRevenueReportFeature.cs" />
+    <Compile Include="Admin_Factories\AdminSetUserActiveFeature.cs" />
+    <Compile Include="Admin_Factories\AdminViewAllBookingsFeature.cs" />
+    <Compile Include="Admin_Factories\AdminViewAllPaymentsFeature.cs" />
+    <Compile Include="Admin_Factories\AdminViewAllUsersFeature.cs" />
+    <Compile Include="Admin_Factories\AdminViewPassengersFeature.cs" />
+    <Compile Include="Admin_Factories\AdminViewSeatAvailabilityFeature.cs" />
+    <Compile Include="Admin_Factories\AdminViewStationsFeature.cs" />
+    <Compile Include="Admin_Factories\AdminViewTrainsFeature.cs" />
+    <Compile Include="Admin_Features\AdminAddTrain.cs" />
+    <Compile Include="Admin_Features\AdminRevenueReport.cs" />
+    <Compile Include="Admin_Features\AdminSetUserActive.cs" />
+    <Compile Include="Admin_Features\AdminViewAllBookings.cs" />
+    <Compile Include="Admin_Features\AdminViewAllPayments.cs" />
+    <Compile Include="Admin_Features\AdminViewAllUsers.cs" />
+    <Compile Include="Admin_Features\AdminViewPassengers.cs" />
+    <Compile Include="Admin_Features\AdminViewSeatAvailability.cs" />
+    <Compile Include="Admin_Features\AdminViewStations.cs" />
+    <Compile Include="Admin_Features\AdminViewTrains.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="Factory\All_Factory.cs" />
+    <Compile Include="Factory\IConcreate_Factory.cs" />
+    <Compile Include="Login_Factory\AdminLoginFeature.cs" />
+    <Compile Include="Login_Factory\AdminMenuFeature.cs" />
+    <Compile Include="Login_Factory\Login_Feature.cs" />
+    <Compile Include="Login_Factory\UserMenuFeature.cs" />
+    <Compile Include="Login_Features\AdminLogin.cs" />
+    <Compile Include="Login_Features\AdminMenu.cs" />
+    <Compile Include="Login_Features\Login.cs" />
+    <Compile Include="Login_Features\UserMenu.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User_Factories\BookTicketFeature.cs" />
+    <Compile Include="User_Factories\CancelBookingFeature.cs" />
+    <Compile Include="User_Factories\DownloadTicketFeature.cs" />
+    <Compile Include="User_Factories\RegisterUserFeature.cs" />
+    <Compile Include="User_Factories\ViewBookingsFeature.cs" />
+    <Compile Include="User_Features\BookTicket.cs" />
+    <Compile Include="User_Features\CancelBooking.cs" />
+    <Compile Include="User_Features\DownloadTicket.cs" />
+    <Compile Include="User_Features\RegisterUser.cs" />
+    <Compile Include="User_Features\ViewBookings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
