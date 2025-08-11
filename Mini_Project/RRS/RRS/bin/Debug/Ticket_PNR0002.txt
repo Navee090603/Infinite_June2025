@@ -1,0 +1,15 @@
+=== Railway Reservation Ticket ===
+PNR Number : PNR0002
+User Name  : karunya
+Train      : Chennai–Bangalore Express (MAS-SBC-001)
+Journey Date: 2025-09-13
+Booking Time: 2025-08-11 19:57
+Status     : waitlist
+Total Amount: ₹1,120.00
+
+Passengers:
+-------------------------------------------------------------
+Name            Age  Gender Type     Coach  Seat   Fare     Status    
+-------------------------------------------------------------
+Rajni           72   male   ac2      A      1      ₹1,120.00 confirmed 
+-------------------------------------------------------------

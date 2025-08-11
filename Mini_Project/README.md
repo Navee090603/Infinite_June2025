@@ -93,21 +93,22 @@ A downloaded ticket appears as follows:
 
 ```
 === Railway Reservation Ticket ===
-PNR Number          : PNR0005
-User Name           : Karunya
-Train               : Coimbatore–Chennai Express (CBE-MAS-001)
-Journey Date        : 2025-10-11
-Booking Time        : 2025-08-09 23:57
-Status              : confirmed
-Total Amount        : ₹800.00
+PNR Number : PNR0003
+User Name  : Karunya
+Train      : Chennai–Coimbatore Return (MAS-CBE-001)
+Journey Date: 2025-11-10
+Booking Time: 2025-08-11 21:34
+Status     : confirmed
+Total Amount: ₹800.00
 
 Passengers:
---------------------------------------------------------------------------------------------
-Name                Age  Gender Type      Coach  Seat    Fare      Status    
----------------------------------------------------------------------------------------------
-Naveen              22   male   sleeper               	₹400.00  confirmed  
-Karunya             21   female sleeper               	₹400.00  confirmed  
----------------------------------------------------------------------------------------------
+-------------------------------------------------------------
+Name            Age  Gender Type     Coach  Seat   Fare     Status    
+-------------------------------------------------------------
+Karu            21   female sleeper  A      1      ₹400.00  confirmed 
+Naveen          22   male   sleeper  A      2      ₹400.00  confirmed 
+-------------------------------------------------------------
+
 ```
 
 ---

@@ -1,5 +1,3 @@
-use RRS_DB
-
 -- 1. users (passengers + admins in one table)
 create table users (
     user_id int identity(1,1) primary key,
@@ -84,7 +82,7 @@ create table passengers (
 
 alter table passengers
 add cancellation_reason nvarchar(200) NULL
-
+sp_help passengers
 -- 6. seat_availability (daily inventory)
 
 create table seat_availability (
@@ -131,7 +129,7 @@ create table admin_logs (
 
 
 alter table passengers
-drop constraint CK__passenger__statu__59FA5E80;
+drop constraint CK__passenger__statu__5AEE82B9;
 
 --
 
@@ -157,12 +155,7 @@ select * from bookings --4
 select * from passengers --5
 select * from payments --6
 select * from seat_availability --7
-select train_id,sleeper_available+ac3_available+ac2_available as total,journey_date from seat_availability where train_id=8
 select * from stations --8 
-
-
-
-
 
 
 

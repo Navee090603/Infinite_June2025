@@ -37,4 +37,4 @@ insert into trains (
 
 -- Insert default admin
 insert into users (name, email, phone, password_hash, user_type) 
-values ('System Admin', 'naveen@railway.com', '9677396491', '10', 'Admin')
+values ('System Admin', 'n@r.com', '9677396491', '10', 'Admin')

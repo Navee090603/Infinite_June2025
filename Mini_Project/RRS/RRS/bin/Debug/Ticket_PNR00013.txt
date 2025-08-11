@@ -1,0 +1,15 @@
+=== Railway Reservation Ticket ===
+PNR Number : PNR00013
+User Name  : syam
+Train      : Chennai–Bangalore Express (MAS-SBC-001)
+Journey Date: 2025-09-13
+Booking Time: 2025-08-11 12:13
+Status     : confirmed
+Total Amount: ₹420.00
+
+Passengers:
+-------------------------------------------------------------
+Name            Age  Gender Type     Coach  Seat   Fare     Status    
+-------------------------------------------------------------
+Syam            22   male   sleeper                ₹420.00  confirmed 
+-------------------------------------------------------------

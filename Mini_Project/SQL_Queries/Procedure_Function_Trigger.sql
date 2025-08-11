@@ -256,7 +256,7 @@ begin
         end;
 
         declare @fareperpassenger decimal(8,2);
-        declare @availableseats int;
+        declare @availableseats int, @seatspercoach int = 10;
 
         select
             @fareperpassenger = case @seattype
@@ -304,6 +304,7 @@ begin
         insert into @ages select cast(value as int) from string_split(@passengerages, ',');
         insert into @genders select value from string_split(@passengergenders, ',');
 
+        -- Insert passengers with status (confirmed/waitlist)
         insert into passengers (booking_id, name, age, gender, seat_type, fare_paid, status)
         select
             @bookingid,
@@ -316,6 +317,32 @@ begin
         from @names n
         inner join @ages a on n.id = a.id
         inner join @genders g on n.id = g.id;
+
+        -- Assign seat_number and coach_number for confirmed passengers only
+        if @status = 'confirmed'
+        begin
+            declare @seat_offset int;
+            select @seat_offset = count(*)
+            from passengers p
+            inner join bookings b on b.booking_id = p.booking_id
+            where b.train_id = @trainid
+              and b.journey_date = @journeydate
+              and p.seat_type = @seattype
+              and p.status = 'confirmed'
+              and b.booking_id <> @bookingid;
+
+            ;with cte as (
+                select passenger_id, 
+                       row_number() over (order by passenger_id) as rn
+                from passengers
+                where booking_id = @bookingid and status = 'confirmed'
+            )
+            update p
+            set seat_number = cast(((@seat_offset + cte.rn - 1) % @seatspercoach + 1) as nvarchar(10)),
+                coach_number = char(65 + ((@seat_offset + cte.rn - 1) / @seatspercoach))
+            from passengers p
+            inner join cte on p.passenger_id = cte.passenger_id;
+        end
 
         insert into payments (booking_id, amount, payment_method, transaction_id)
         values (@bookingid, @totalamount, @paymentmethod, @transactionid);
@@ -333,7 +360,6 @@ begin
     end catch;
 end;
 go
-
 ---------------------------------------------------
 --7.sp_registeruser
 
@@ -427,7 +453,7 @@ begin
                     when 'ac2' then isnull(sa.ac2_available, 0)
                 end >= @passengercount
             then 'available'
-            else 'Not_Running'
+            else 'Not_Running/Waitlist'
         end as booking_status
     from trains t
     inner join stations s1 on t.source_station_id = s1.station_id
@@ -556,7 +582,7 @@ begin
     )
     option (maxrecursion 130);
 
-    -- now delete any rows we just inserted that aren’t valid journeys
+    -- now delete any rows we just inserted that aren t valid journeys
     delete sa
     from seat_availability sa
     inner join inserted i
@@ -580,13 +606,15 @@ begin
             select count(*) from inserted i
             inner join bookings b on b.booking_id = i.booking_id
             where i.seat_type = 'sleeper'
-              and b.train_id = sa.train_id
+	      and i.status = 'confirmed'
+	      and b.train_id = sa.train_id
               and b.journey_date = sa.journey_date
         ),
         ac3_available = sa.ac3_available - (
             select count(*) from inserted i
             inner join bookings b on b.booking_id = i.booking_id
             where i.seat_type = 'ac3'
+	      and i.status = 'confirmed'
               and b.train_id = sa.train_id
               and b.journey_date = sa.journey_date
         ),
@@ -594,6 +622,7 @@ begin
             select count(*) from inserted i
             inner join bookings b on b.booking_id = i.booking_id
             where i.seat_type = 'ac2'
+	      and i.status = 'confirmed'
               and b.train_id = sa.train_id
               and b.journey_date = sa.journey_date
         ),
@@ -608,58 +637,91 @@ begin
 end
 
 -- 3. restore seat availability when booking is cancelled
-
 create or alter trigger trg_passenger_seat_restore
 on passengers after update
 as
 begin
     set nocount on;
 
-    -- restore seat availability when passenger status changes to cancelled
+    -- Only proceed if status is updated
     if update(status)
     begin
-        -- For each ticket that's cancelled in this update, restore seat count for the correct type
-        update sa
-        set sleeper_available = sa.sleeper_available + 
-            (select count(*) from inserted i
-                inner join deleted d on i.passenger_id = d.passenger_id
-                inner join bookings b on b.booking_id = i.booking_id
-                where i.seat_type = 'sleeper'
-                  and i.status = 'cancelled'
-                  and d.status != 'cancelled'
-                  and b.train_id = sa.train_id
-                  and b.journey_date = sa.journey_date),
-            ac3_available = sa.ac3_available + 
-            (select count(*) from inserted i
-                inner join deleted d on i.passenger_id = d.passenger_id
-                inner join bookings b on b.booking_id = i.booking_id
-                where i.seat_type = 'ac3'
-                  and i.status = 'cancelled'
-                  and d.status != 'cancelled'
-                  and b.train_id = sa.train_id
-                  and b.journey_date = sa.journey_date),
-            ac2_available = sa.ac2_available + 
-            (select count(*) from inserted i
-                inner join deleted d on i.passenger_id = d.passenger_id
-                inner join bookings b on b.booking_id = i.booking_id
-                where i.seat_type = 'ac2'
-                  and i.status = 'cancelled'
-                  and d.status != 'cancelled'
-                  and b.train_id = sa.train_id
-                  and b.journey_date = sa.journey_date),
-            last_updated = getdate()
-        from seat_availability sa
-        where exists (
-            select 1 from inserted i
+        -- Instead of bulk update, do per-passenger logic to avoid increasing seat_availability when waitlist is promoted
+
+        declare @bookingid int, @seat_type nvarchar(10), @released_seat nvarchar(10), @released_coach nvarchar(10), @journeydate date, @trainid int, @passenger_id int, @promoted bit;
+
+        declare cur cursor for
+            select i.booking_id, i.seat_type, d.seat_number, d.coach_number
+            from inserted i
             inner join deleted d on i.passenger_id = d.passenger_id
-            inner join bookings b on b.booking_id = i.booking_id
-            where (
-                    (i.seat_type = 'sleeper' and i.status = 'cancelled' and d.status != 'cancelled')
-                 or (i.seat_type = 'ac3' and i.status = 'cancelled' and d.status != 'cancelled')
-                 or (i.seat_type = 'ac2' and i.status = 'cancelled' and d.status != 'cancelled')
-                )
-              and b.train_id = sa.train_id
-              and b.journey_date = sa.journey_date
-        )
+            where i.status = 'cancelled' and d.status != 'cancelled' and d.seat_number is not null;
+
+        open cur;
+        fetch next from cur into @bookingid, @seat_type, @released_seat, @released_coach;
+        while @@fetch_status = 0
+        begin
+            set @promoted = 0;
+            select @trainid = b.train_id, @journeydate = b.journey_date from bookings b where b.booking_id = @bookingid;
+
+            select top 1 @passenger_id = p.passenger_id
+            from passengers p
+            inner join bookings b on b.booking_id = p.booking_id
+            where b.train_id = @trainid
+              and b.journey_date = @journeydate
+              and p.seat_type = @seat_type
+              and p.status = 'waitlist'
+            order by p.passenger_id;
+
+            if @passenger_id is not null
+            begin
+                update passengers
+                set status = 'confirmed',
+                    seat_number = @released_seat,
+                    coach_number = @released_coach
+                where passenger_id = @passenger_id;
+                set @promoted = 1;
+            end
+
+            -- Only restore seat if not promoted to waitlist
+            if @promoted = 0
+            begin
+                update sa
+                set 
+                    sleeper_available = sleeper_available + case when @seat_type = 'sleeper' then 1 else 0 end,
+                    ac3_available = ac3_available + case when @seat_type = 'ac3' then 1 else 0 end,
+                    ac2_available = ac2_available + case when @seat_type = 'ac2' then 1 else 0 end,
+                    last_updated = getdate()
+                from seat_availability sa
+                where sa.train_id = @trainid and sa.journey_date = @journeydate;
+            end
+
+            fetch next from cur into @bookingid, @seat_type, @released_seat, @released_coach;
+        end
+        close cur;
+        deallocate cur;
+
+        -- === Update booking status based on passenger statuses ===
+        update b
+        set booking_status =
+            case
+                when not exists (
+                    select 1 from passengers p
+                    where p.booking_id = b.booking_id and p.status in ('confirmed', 'waitlist', 'rac')
+                ) then 'cancelled'
+                when exists (
+                    select 1 from passengers p
+                    where p.booking_id = b.booking_id and p.status = 'confirmed'
+                ) then 'confirmed'
+                when exists (
+                    select 1 from passengers p
+                    where p.booking_id = b.booking_id and p.status = 'waitlist'
+                ) then 'waitlist'
+                else b.booking_status
+            end
+        from bookings b
+        where b.booking_id in (
+            select distinct booking_id from inserted
+        );
     end
 end
+go

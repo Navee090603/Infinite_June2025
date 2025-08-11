@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RRS.User_Features
 {
@@ -23,9 +20,8 @@ namespace RRS.User_Features
             try
             {
                 Console.Clear();
-                Console.WriteLine("====Your Bookings====");
+                Console.WriteLine("========== YOUR BOOKINGS ==========\n");
 
-                // Fetch bookings and total count
                 var ds = DataAccess.Instance.ExecuteDataSet(
                     "sp_GetUserBookings",
                     new SqlParameter("@UserId", loggedInUserId),
@@ -41,35 +37,53 @@ namespace RRS.User_Features
                     return;
                 }
 
-                // Print table header (adjusted column widths)
-                Console.WriteLine();
-                Console.WriteLine(
-                    $"{"PNR",-15} {"Train Name",-28} {"Date",-12} {"Status",-12} {"Amount",-12} {"Passenger_Count",5}"
-                );
-                Console.WriteLine(new string('-', 100));
-
-                // Print each booking row
                 foreach (DataRow row in dt.Rows)
                 {
                     string pnr = row["pnr_number"].ToString();
                     string trainName = row["train_name"].ToString();
                     string date = ((DateTime)row["journey_date"]).ToString("yyyy-MM-dd");
-                    string status = row["booking_status"].ToString();
                     decimal amount = Convert.ToDecimal(row["total_amount"]);
                     int count = Convert.ToInt32(row["passenger_count"]);
-
-                    // format amount with rupee symbol
                     string amountStr = $"₹{amount:N2}";
 
-                    Console.WriteLine(
-                        $"{pnr,-15} {trainName,-28} {date,-12} {status,-12} {amountStr,12} {count,5}"
+                    Console.WriteLine($"PNR         : {pnr}");
+                    Console.WriteLine($"Train       : {trainName}");
+                    Console.WriteLine($"Journey Date: {date}");
+                    Console.WriteLine($"Amount      : {amountStr}");
+                    Console.WriteLine($"Passengers  : {count}");
+                    Console.WriteLine();
+
+                    var passengers = DataAccess.Instance.ExecuteTable(
+                        "SELECT name, age, gender, seat_type, seat_number, coach_number, fare_paid, status FROM passengers WHERE booking_id = @booking_id",
+                        new SqlParameter("@booking_id", row["booking_id"])
                     );
+
+                    if (passengers.Rows.Count > 0)
+                    {
+                        Console.WriteLine("Passenger Details:");
+                        Console.WriteLine($"{"Name",-15} {"Age",3} {"Gender",-6} {"Type",-6} {"Coach",-5} {"Seat",-4} {"Fare",8} {"Status",-10}");
+                        Console.WriteLine(new string('-', 65));
+
+                        foreach (DataRow prow in passengers.Rows)
+                        {
+                            string name = prow["name"].ToString();
+                            string age = prow["age"].ToString();
+                            string gender = prow["gender"].ToString();
+                            string type = prow["seat_type"].ToString();
+                            string coach = prow["coach_number"].ToString();
+                            string seat = prow["seat_number"].ToString();
+                            string fare = $"₹{Convert.ToDecimal(prow["fare_paid"]):N2}";
+                            string status = prow["status"].ToString();
+
+                            Console.WriteLine($"{name,-15} {age,3} {gender,-6} {type,-6} {coach,-5} {seat,-4} {fare,8} {status,-10}");
+                        }
+                    }
+
+                    Console.WriteLine("\n" + new string('=', 40) + "\n");
                 }
 
-                // Print total records
                 int totalRecords = Convert.ToInt32(ds.Tables[1].Rows[0]["totalrecords"]);
-                Console.WriteLine();
-                Console.WriteLine($"Total Bookings: {totalRecords}");
+                Console.WriteLine($"Total Bookings: {totalRecords}\n");
             }
             catch (SqlException ex)
             {
