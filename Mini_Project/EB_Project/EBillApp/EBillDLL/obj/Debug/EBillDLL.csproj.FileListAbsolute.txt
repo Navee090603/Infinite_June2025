@@ -1,0 +1,6 @@
+C:\Users\naveent\Downloads\ElectricityBill\EBillApp\EBillDLL\bin\Debug\EBillDLL.dll
+C:\Users\naveent\Downloads\ElectricityBill\EBillApp\EBillDLL\bin\Debug\EBillDLL.pdb
+C:\Users\naveent\Downloads\ElectricityBill\EBillApp\EBillDLL\obj\Debug\EBillDLL.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\ElectricityBill\EBillApp\EBillDLL\obj\Debug\EBillDLL.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\ElectricityBill\EBillApp\EBillDLL\obj\Debug\EBillDLL.dll
+C:\Users\naveent\Downloads\ElectricityBill\EBillApp\EBillDLL\obj\Debug\EBillDLL.pdb

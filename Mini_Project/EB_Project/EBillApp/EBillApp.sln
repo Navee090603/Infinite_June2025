@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36128.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBillApp", "EBillApp\EBillApp.csproj", "{56E58554-B1D3-4596-8F95-538D8E623D9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBillDLL", "EBillDLL\EBillDLL.csproj", "{1547F72E-9D2E-47FD-A6A6-68D3B3ED2098}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56E58554-B1D3-4596-8F95-538D8E623D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E58554-B1D3-4596-8F95-538D8E623D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E58554-B1D3-4596-8F95-538D8E623D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E58554-B1D3-4596-8F95-538D8E623D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1547F72E-9D2E-47FD-A6A6-68D3B3ED2098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1547F72E-9D2E-47FD-A6A6-68D3B3ED2098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1547F72E-9D2E-47FD-A6A6-68D3B3ED2098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1547F72E-9D2E-47FD-A6A6-68D3B3ED2098}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D986F849-F903-4E6B-8944-D7600E83F3A3}
+	EndGlobalSection
+EndGlobal
