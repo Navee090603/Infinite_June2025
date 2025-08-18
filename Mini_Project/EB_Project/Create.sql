@@ -1,8 +1,4 @@
-CREATE DATABASE EDB;
-GO
-
-USE EDB;
-GO
+create database ElectricityBillDB
 
 -- Admin login table
 CREATE TABLE AdminLogin (
@@ -33,3 +29,5 @@ INSERT INTO AdminLogin VALUES ('n@e.com', '10');
 select * from ElectricityBill
 select * from Customers
 select * from AdminLogin
+
+
