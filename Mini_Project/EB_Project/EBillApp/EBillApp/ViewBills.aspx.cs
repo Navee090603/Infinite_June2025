@@ -9,13 +9,8 @@ namespace EBillApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                if (Session["Username"] == null)
-                {
-                    Response.Redirect("~/Login.aspx");
-                }
-            }
+
+
         }
 
         protected void btnViewBills_Click(object sender, EventArgs e)

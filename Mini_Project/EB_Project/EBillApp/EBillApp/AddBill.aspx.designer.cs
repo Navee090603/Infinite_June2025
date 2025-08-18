@@ -33,6 +33,24 @@ namespace EBillApp
         protected global::System.Web.UI.WebControls.TextBox txtConsumerName;
 
         /// <summary>
+        /// txtBillMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBillMonth;
+
+        /// <summary>
+        /// rfvMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMonth;
+
+        /// <summary>
         /// txtUnitsConsumed control.
         /// </summary>
         /// <remarks>

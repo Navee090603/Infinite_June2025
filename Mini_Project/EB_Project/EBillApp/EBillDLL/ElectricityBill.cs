@@ -9,6 +9,7 @@ namespace EBillDLL
         private string consumerName;
         private int unitsConsumed;
         private double billAmount;
+        public string BillMonth { get; set; }
 
         public string ConsumerNumber
         {
@@ -34,8 +35,8 @@ namespace EBillDLL
             get { return unitsConsumed; }
             set
             {
-                if (value < 0)
-                    throw new ArgumentException("Units consumed cannot be negative");
+                if (value <= 0)
+                    throw new ArgumentException("Units consumed cannot be zero and negative");
                 unitsConsumed = value;
             }
         }

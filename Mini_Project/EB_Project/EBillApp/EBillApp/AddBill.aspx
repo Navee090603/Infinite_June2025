@@ -18,6 +18,18 @@
                 <asp:TextBox ID="txtConsumerName" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
             </div>
         </div>
+
+        <!-- Bill Month Selection -->
+<div class="form-group">
+    <label class="control-label col-md-2">Bill Month</label>
+    <div class="col-md-10">
+        <!-- HTML5 month picker -->
+        <asp:TextBox ID="txtBillMonth" runat="server" CssClass="form-control" 
+                     TextMode="Month"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvMonth" runat="server" ControlToValidate="txtBillMonth" 
+            ErrorMessage="Please select a bill month" CssClass="text-danger"></asp:RequiredFieldValidator>
+    </div>
+</div>
         
         <div class="form-group">
             <label class="control-label col-md-2">Units Consumed</label>

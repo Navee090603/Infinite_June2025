@@ -33,6 +33,8 @@
                 <asp:BoundField DataField="ConsumerName" HeaderText="Consumer Name" />
                 <asp:BoundField DataField="UnitsConsumed" HeaderText="Units Consumed" />
                 <asp:BoundField DataField="BillAmount" HeaderText="Bill Amount (Rs.)" DataFormatString="{0:N2}" />
+                <asp:BoundField DataField="BillMonth" HeaderText="Bill Month" />
+
             </Columns>
             <EmptyDataTemplate>
                 No bills found.

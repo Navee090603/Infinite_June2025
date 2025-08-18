@@ -10,7 +10,7 @@ namespace EBillDLL
     {
         public string ValidateUnitsConsumed(int unitsConsumed)
         {
-            if (unitsConsumed < 0)
+            if (unitsConsumed <= 0)
                 return "Given units is invalid";
             return null;
         }

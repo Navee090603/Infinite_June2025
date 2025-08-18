@@ -74,12 +74,12 @@ INSERT INTO AdminLogin VALUES ('n@e.com', '10');
 
 ## Pages
 
-- **Login:** `web_forms/Login.aspx`
-- **Dashboard (after login):** `web_forms/AddBill.aspx`
-- **Add Bill:** `web_forms/AddBill.aspx`
-- **View Bills:** `web_forms/ViewBills.aspx`
-- **Add Customer:** `web_forms/AddCustomer.aspx`
-- **View Customers:** `web_forms/Customers.aspx`
+- **Login:** `/Login.aspx`
+- **Dashboard (after login):** `/AddBill.aspx`
+- **Add Bill:** `/AddBill.aspx`
+- **View Bills:** `/ViewBills.aspx`
+- **Add Customer:** `/AddCustomer.aspx`
+- **View Customers:** `/Customers.aspx`
 
 ## Notes
 

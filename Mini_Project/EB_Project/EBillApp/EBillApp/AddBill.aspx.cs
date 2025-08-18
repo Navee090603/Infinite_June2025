@@ -10,10 +10,9 @@ namespace EBillApp
         {
             if (!IsPostBack)
             {
-                if (Session["Username"] == null)
-                {
-                    Response.Redirect("~/Login.aspx");
-                }
+                string currentMonth = DateTime.Now.ToString("yyyy-MM");
+                txtBillMonth.Attributes["max"] = currentMonth;
+                LoadConsumerNumbers();
             }
         }
 
@@ -62,11 +61,13 @@ namespace EBillApp
                     bill.ConsumerNumber = ddlConsumerNumber.SelectedValue;
                     bill.ConsumerName = txtConsumerName.Text;
                     bill.UnitsConsumed = Convert.ToInt32(txtUnitsConsumed.Text);
+                    bill.BillMonth = txtBillMonth.Text;   // assign month (YYYY-MM format)
+
 
                     ElectricityBoard eb = new ElectricityBoard();
                     eb.CalculateBill(bill);
 
-                    lblBillAmount.Text = $"Bill Amount for {bill.ConsumerName} (Units: {bill.UnitsConsumed}): Rs. {bill.BillAmount}";
+                    lblBillAmount.Text = $"Bill Amount for {bill.ConsumerName} (Units: {bill.UnitsConsumed}, Month: {bill.BillMonth}): Rs. {bill.BillAmount}";
                     ViewState["CurrentBill"] = bill;
                     btnSave.Enabled = true;
                     lblMessage.Visible = false;
@@ -104,6 +105,7 @@ namespace EBillApp
                     ddlConsumerNumber.SelectedIndex = 0;
                     txtConsumerName.Text = "";
                     txtUnitsConsumed.Text = "";
+                    txtBillMonth.Text = "";
                     lblBillAmount.Text = "";
                     btnSave.Enabled = false;
                     ViewState["CurrentBill"] = null;

@@ -9,22 +9,20 @@ namespace EBillDLL
     {
         public void AddBill(ElectricityBill ebill)
         {
-            string currentMonth = DateTime.Now.ToString("MMM-yyyy");
-
             using (SqlConnection connection = DBHandler.GetConnection())
             {
                 connection.Open();
 
-                // Check if bill already exists for this month
+                // Check if bill already exists for selected month
                 string checkQuery = "SELECT COUNT(*) FROM ElectricityBill WHERE ConsumerNumber = @ConsumerNumber AND BillMonth = @BillMonth";
                 SqlCommand checkCmd = new SqlCommand(checkQuery, connection);
                 checkCmd.Parameters.AddWithValue("@ConsumerNumber", ebill.ConsumerNumber);
-                checkCmd.Parameters.AddWithValue("@BillMonth", currentMonth);
+                checkCmd.Parameters.AddWithValue("@BillMonth", ebill.BillMonth);
 
                 int count = (int)checkCmd.ExecuteScalar();
                 if (count > 0)
                 {
-                    throw new Exception("Bill already generated for this month.");
+                    throw new Exception($"Bill already generated for {ebill.BillMonth}.");
                 }
 
                 // Insert new bill
@@ -35,11 +33,12 @@ namespace EBillDLL
                 cmd.Parameters.AddWithValue("@ConsumerNumber", ebill.ConsumerNumber);
                 cmd.Parameters.AddWithValue("@UnitsConsumed", ebill.UnitsConsumed);
                 cmd.Parameters.AddWithValue("@BillAmount", ebill.BillAmount);
-                cmd.Parameters.AddWithValue("@BillMonth", currentMonth);
+                cmd.Parameters.AddWithValue("@BillMonth", ebill.BillMonth);
 
                 cmd.ExecuteNonQuery();
             }
         }
+
 
         public void CalculateBill(ElectricityBill ebill)
         {
@@ -78,7 +77,7 @@ namespace EBillDLL
             {
                 connection.Open();
 
-                string query = "SELECT TOP (@Num) b.ConsumerNumber, c.ConsumerName, b.UnitsConsumed, b.BillAmount " +
+                string query = "SELECT TOP (@Num) b.ConsumerNumber, c.ConsumerName, b.UnitsConsumed, b.BillAmount, b.BillMonth " +
                               "FROM ElectricityBill b INNER JOIN Customers c ON b.ConsumerNumber = c.ConsumerNumber " +
                               "ORDER BY b.CreatedDate DESC";
 
@@ -94,6 +93,7 @@ namespace EBillDLL
                     bill.ConsumerName = reader["ConsumerName"].ToString();
                     bill.UnitsConsumed = Convert.ToInt32(reader["UnitsConsumed"]);
                     bill.BillAmount = Convert.ToDouble(reader["BillAmount"]);
+                    bill.BillMonth = reader["BillMonth"].ToString();
 
                     bills.Add(bill);
                 }
