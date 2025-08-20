@@ -6,7 +6,7 @@
     
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="control-label col-md-2">Number of Bills to View</label>
+            <label class="control-label col-md-4">Number of Bills to View</label>
             <div class="col-md-10">
                 <asp:TextBox ID="txtNumberOfBills" runat="server" CssClass="form-control" TextMode="Number" min="1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvNumber" runat="server" ControlToValidate="txtNumberOfBills" 

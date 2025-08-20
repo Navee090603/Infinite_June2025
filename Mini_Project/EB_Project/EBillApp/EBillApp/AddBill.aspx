@@ -34,12 +34,12 @@
         <div class="form-group">
             <label class="control-label col-md-2">Units Consumed</label>
             <div class="col-md-10">
-                <asp:TextBox ID="txtUnitsConsumed" runat="server" CssClass="form-control" TextMode="Number" min="0"></asp:TextBox>
+                <asp:TextBox ID="txtUnitsConsumed" runat="server" CssClass="form-control" TextMode="Number" min="1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvUnits" runat="server" ControlToValidate="txtUnitsConsumed" 
                     ErrorMessage="Units consumed is required" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:RangeValidator ID="rvUnits" runat="server" ControlToValidate="txtUnitsConsumed" 
-                    Type="Integer" MinimumValue="0" MaximumValue="999999" 
-                    ErrorMessage="Units must be a positive number" CssClass="text-danger" Display="Dynamic"></asp:RangeValidator>
+                    Type="Integer" MinimumValue="1" MaximumValue="999999" 
+                    ErrorMessage="Check the Units" CssClass="text-danger" Display="Dynamic"></asp:RangeValidator>
             </div>
         </div>
         

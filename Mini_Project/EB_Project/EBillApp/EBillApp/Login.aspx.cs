@@ -32,7 +32,7 @@ namespace EBillApp
                     if (count > 0)
                     {
                         Session["Username"] = username;
-                        Response.Redirect("~/AddBill.aspx");
+                        Response.Redirect("~/Dashboard.aspx");
                     }
                     else
                     {
