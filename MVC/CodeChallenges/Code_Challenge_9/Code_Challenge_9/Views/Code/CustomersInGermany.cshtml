@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Code_Challenge_9.Models.Customer>
+
+@{ ViewBag.Title = "CustomersInGermany"; }
+
+<h2>Customers In Germany</h2>
+
+<table border="1">
+    <tr>
+        <th>Cust ID</th>
+        <th>Company Name</th>
+        <th>Contact Name</th>
+        <th>City</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+<tr>
+    <td>@customer.CustomerID</td>
+    <td>@customer.CompanyName</td>
+    <td>@customer.ContactName</td>
+    <td>@customer.City</td>
+</tr>}
+</table>

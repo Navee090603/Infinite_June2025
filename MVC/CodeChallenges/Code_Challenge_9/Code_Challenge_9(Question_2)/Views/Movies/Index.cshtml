@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Code_Challenge_9_Question_2_.Models.Movie>
+@{
+    ViewBag.Title = "Movies List";
+}
+<h2>Movies List</h2>
+
+<p>
+    @Html.ActionLink("Add New Movie", "Create")
+</p>
+<p>
+    @Html.ActionLink("Find Movies By Year", "ByYear") |
+    @Html.ActionLink("Find Movies By Director", "ByDirector")
+</p>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Moviename)</th>
+        <th>@Html.DisplayNameFor(m => m.DirectorName)</th>
+        <th>@Html.DisplayNameFor(m => m.DateofRelease)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Moviename</td>
+            <td>@item.DirectorName</td>
+            <td>@item.DateofRelease.ToShortDateString()</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Mid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Mid })
+            </td>
+        </tr>
+    }
+</table>

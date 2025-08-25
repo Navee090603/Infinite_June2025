@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Code_Challenge_9_Question_2_.Models.Movie>
+
+@{
+    ViewBag.Title = "Find Movies By Year";
+}
+
+<h2>Find Movies By Year</h2>
+
+@using (Html.BeginForm("ByYear", "Movies", FormMethod.Post))
+{
+    <label for="year">Enter Year:</label>
+    <input type="number" name="year" id="year" required />
+    <input type="submit" value="Search" />
+}
+
+@if (Model != null)
+{
+    if (Model.Any())
+    {
+        <h3>Movies Released in @ViewBag.Year</h3>
+        <table class="table">
+            <tr>
+                <th>Movie</th>
+                <th>Director</th>
+                <th>Date</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Moviename</td>
+                    <td>@item.DirectorName</td>
+                    <td>@item.DateofRelease.ToShortDateString()</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No movies found for the entered year.</p>
+    }
+}

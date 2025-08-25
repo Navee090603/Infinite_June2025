@@ -1,0 +1,35 @@
+﻿@model Code_Challenge_9_Question_2_.Models.Movie
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Movie</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.HiddenFor(model => model.Mid)
+
+        <div>
+            @Html.LabelFor(model => model.Moviename)
+            @Html.EditorFor(model => model.Moviename)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.DirectorName)
+            @Html.EditorFor(model => model.DirectorName)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.DateofRelease)
+            @Html.EditorFor(model => model.DateofRelease)
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
