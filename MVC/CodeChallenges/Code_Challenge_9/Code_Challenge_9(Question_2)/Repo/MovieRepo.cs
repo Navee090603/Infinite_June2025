@@ -49,7 +49,6 @@ namespace Code_Challenge_9_Question_2_.Repo
             db.Entry(obj).State = EntityState.Modified;
         }
 
-        // Extra methods for the requirements
         public IEnumerable<T> GetByYear(int year)
         {
             if (typeof(T) == typeof(Movie))
